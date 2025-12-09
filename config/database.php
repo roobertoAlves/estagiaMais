@@ -4,9 +4,9 @@
  */
 
 define('DB_HOST', $_ENV['DB_HOST'] ?? 'localhost');
-define('DB_USER', $_ENV['DB_USER'] ?? 'root');
-define('DB_PASS', $_ENV['DB_PASS'] ?? '');
-define('DB_NAME', $_ENV['DB_NAME'] ?? 'estagia_plus');
+define('DB_USER', $_ENV['DB_USER'] ?? 'simplifica_estagiaMais_admin');
+define('DB_PASS', $_ENV['DB_PASS'] ?? 'estagia1234@');
+define('DB_NAME', $_ENV['DB_NAME'] ?? 'simplifica_EstagiaMais');
 define('DB_PORT', $_ENV['DB_PORT'] ?? 3306);
 
 // Classe para gerenciar conexão com banco de dados
