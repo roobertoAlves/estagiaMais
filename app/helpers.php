@@ -5,7 +5,9 @@ function url($path = '') {
 }
 
 function asset($path) {
-    return BASE_URL . '/public/' . ltrim($path, '/');
+    $base = BASE_URL;
+    // Garantir que não há dupla barra
+    return rtrim($base, '/') . '/public/' . ltrim($path, '/');
 }
 
 function e($value) {

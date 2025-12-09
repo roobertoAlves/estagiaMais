@@ -18,11 +18,40 @@ define('PUBLIC_PATH', BASE_PATH . '/public');
 define('APP_PATH', BASE_PATH . '/app');
 define('RESOURCES_PATH', BASE_PATH . '/resources');
 
+// Detectar base URL automaticamente
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$script = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME'] ?? '');
-define('BASE_URL', $script);
-define('FULL_URL', $protocol . '://' . $host . $script);
+
+$scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+$script = str_replace('/index.php', '', $scriptName);
+
+// Se o script terminar com /, remover a barra
+$script = rtrim($script, '/');
+
+// Se estiver vazio, tentar com REQUEST_URI
+if (empty($script)) {
+    $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+    $script = preg_replace('#/index\.php.*#', '', $requestUri);
+    $script = rtrim($script, '/');
+}
+
+// Se ainda estiver vazio, tentar documentroot
+if (empty($script) || $script === '') {
+    $docRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
+    $realPath = realpath(__DIR__);
+    if (!empty($docRoot) && !empty($realPath)) {
+        $script = str_replace($docRoot, '', $realPath);
+        $script = str_replace('\\', '/', $script);
+    }
+}
+
+// Fallback para localhost
+if (empty($script) && (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false)) {
+    $script = '/estagiaMais';
+}
+
+define('BASE_URL', $script ?: '');
+define('FULL_URL', $protocol . '://' . $host . ($script ?: ''));
 
 session_start();
 

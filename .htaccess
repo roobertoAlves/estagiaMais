@@ -1,24 +1,39 @@
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    # RewriteBase será definido automaticamente
-    # Para localhost: /estagiaMais/
-    # Para cPanel: /
     
-    # Evitar reescrever para arquivos e diretórios existentes
+    # Detectar a pasta base automaticamente
+    # Para cPanel: /grupos/estagiaMais/
+    # Para localhost: /estagiaMais/
+    RewriteBase /grupos/estagiaMais/
+    
+    # Não reescrever se for arquivo ou diretório real
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     
     # Reescrever todas as requisições para index.php
-    RewriteRule ^(.*)$ index.php?/$1 [L]
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 </IfModule>
 
 # Configurações de segurança
 <FilesMatch "^\.">
-    Deny from all
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
-<FilesMatch "\.(env|config)$">
-    Deny from all
+<FilesMatch "\.env$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
 # Cache
