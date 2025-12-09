@@ -32,7 +32,7 @@
                         <a href="<?php echo url('perfil'); ?>" class="btn btn-secondary btn-sm">Meu Perfil</a>
                         <a href="<?php echo url('logout'); ?>" class="btn btn-outline btn-sm">Sair</a>
                     <?php else: ?>
-                        <a href="<?php echo url('login'); ?>" id="btnEntrar" class="btn btn-primary">Entrar</a>
+                        <a href="<?php echo url('login'); ?>" class="btn btn-primary">Entrar</a>
                         <a href="<?php echo url('registro'); ?>" class="btn btn-secondary">Cadastrar</a>
                     <?php endif; ?>
                 </div>

@@ -129,13 +129,13 @@ a:hover {
 .btn-primary{
     background-color: var(--azul) !important;
     color: var(--branco) !important;
-    border-color: var(--azul);
+    border-color: var(--azul) !important;
 }
 
 .btn-primary:hover {
-    background-color: var(--branco);
+    background-color: var(--branco) !important;
     color: var(--azul) !important; 
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-md) !important;
 }
 
 .btn-secondary {
