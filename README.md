@@ -2,32 +2,32 @@
 
 Plataforma digital para centralizar oportunidades de estágio, facilitar comunicação entre alunos, professores e empresas, integrando-se com plataformas externas de emprego.
 
-## 🎯 Requisitos do Sistema
+## Requisitos do Sistema
 
 - **PHP**: 8.0 ou superior
 - **MySQL/MariaDB**: 5.7 ou superior
 - **Servidor Web**: Apache com mod_rewrite habilitado
 - **Navegador**: Chrome, Firefox, Safari, Edge (últimas versões)
 
-## 📋 Requisitos Funcionais Implementados
+## Requisitos Funcionais Implementados
 
 ### Home Page
-- ✅ Header com menu navegável
-- ✅ Hero section com CTA
-- ✅ Seção Sobre (Missão, Visão, Valores)
-- ✅ Análise SWOT interativa
-- ✅ Grid de membros da equipe com modal
-- ✅ Seção de Vagas (placeholder para integração)
-- ✅ Footer com informações e links legais
+- Header com menu navegável
+- Hero section com CTA
+- Seção Sobre (Missão, Visão, Valores)
+- Análise SWOT interativa
+- Grid de membros da equipe com modal
+- Seção de Vagas (placeholder para integração)
+- Footer com informações e links legais
 
 ### Sistema de Autenticação
-- ✅ Tela de Login (email/matrícula + senha)
-- ✅ Tela de Registro (dados completos + LGPD)
-- ✅ Upload de avatar com validação
-- ✅ Validação de força de senha
-- ✅ CSRF token para segurança
-- ✅ Cookies "Lembrar-me" seguros
-- ✅ Hashing de senhas com bcrypt
+- Tela de Login (email/matrícula + senha)
+- Tela de Registro (dados completos + LGPD)
+- Upload de avatar com validação
+- Validação de força de senha
+- CSRF token para segurança
+- Cookies "Lembrar-me" seguros
+- Hashing de senhas com bcrypt
 
 ### Dashboard Admin
 - ✅ Dashboard com estatísticas (usuários, vagas, estágios)
@@ -37,7 +37,7 @@ Plataforma digital para centralizar oportunidades de estágio, facilitar comunic
 - ✅ **Painel de cores** com roda de cor interativa
 - ✅ Controle de permissões por role
 
-## 🎨 Identidade Visual
+## Identidade Visual
 
 ### Paleta de Cores
 - **Azul Primário**: `#0B194F` - Confiabilidade e profissionalismo
@@ -46,13 +46,13 @@ Plataforma digital para centralizar oportunidades de estágio, facilitar comunic
 - **Branco**: `#FFFFFF` - Textos e contraste
 
 ### Acessibilidade
-- ✅ Contraste WCAG AA em todos os elementos
-- ✅ Tipografia legível (16px base)
-- ✅ Navegação por teclado completa
-- ✅ Labels semânticas em formulários
-- ✅ Textos alternativos e ARIA labels
+- Contraste WCAG AA em todos os elementos
+- Tipografia legível (16px base)
+- Navegação por teclado completa
+- Labels semânticas em formulários
+- Textos alternativos e ARIA labels
 
-## 🚀 Instalação Rápida
+## Instalação Rápida
 
 ### 1. Clonar o repositório
 ```bash
@@ -77,7 +77,7 @@ O banco é criado automaticamente na primeira requisição. Certifique-se de que
 http://localhost/estagiaMais
 ```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 estagiaMais/
@@ -113,32 +113,32 @@ estagiaMais/
 └── routes.php                      # Definição de rotas
 ```
 
-## 🔐 Segurança Implementada
+## Segurança Implementada
 
 ### Autenticação e Autorização
-- ✅ Sessions PHP seguras
-- ✅ CSRF tokens em formulários
-- ✅ Password hashing com bcrypt
-- ✅ Validação de entrada (sanitização)
-- ✅ Proteção contra timing attacks
-- ✅ Limite de tentativas de login (futuro)
+- Sessions PHP seguras
+- CSRF tokens em formulários
+- Password hashing com bcrypt
+- Validação de entrada (sanitização)
+- Proteção contra timing attacks
+- Limite de tentativas de login (futuro)
 
 ### Proteção de Dados
-- ✅ Validação de MIME types para uploads
-- ✅ Limite de tamanho de arquivo (5MB)
-- ✅ Diretório de uploads protegido
-- ✅ Senhas com requisitos mínimos:
+- Validação de MIME types para uploads
+- Limite de tamanho de arquivo (5MB)
+- Diretório de uploads protegido
+- Senhas com requisitos mínimos:
   - 8+ caracteres
   - Letra maiúscula
   - Número
 
 ### LGPD (Lei Geral de Proteção de Dados)
-- ✅ Consentimento obrigatório no registro
-- ✅ Política de privacidade disponível
-- ✅ Campo `lgpd_accepted` no banco
-- ✅ Dados de usuário deletados apenas com consentimento
+- Consentimento obrigatório no registro
+- Política de privacidade disponível
+- Campo `lgpd_accepted` no banco
+- Dados de usuário deletados apenas com consentimento
 
-## 🎬 Animações e Interatividade
+## Animações e Interatividade
 
 ### Bibliotecas Utilizadas
 - **AOS** (Animate On Scroll) - Animações ao scroll
@@ -152,15 +152,15 @@ estagiaMais/
 - Modal com animação em membros
 - Transições suaves em links
 
-## 📱 Responsividade
+## Responsividade
 
-- ✅ Mobile-first design
-- ✅ Breakpoints: 768px, 480px
-- ✅ Sidebar responsiva em admin
-- ✅ Grid layouts adaptáveis
-- ✅ Imagens fluidas
+- Mobile-first design
+- Breakpoints: 768px, 480px
+- Sidebar responsiva em admin
+- Grid layouts adaptáveis
+- Imagens fluidas
 
-## 🔄 Rotas da Aplicação
+## Rotas da Aplicação
 
 ### Públicas
 - `GET /` - Home page
@@ -178,7 +178,7 @@ estagiaMais/
 - `GET /admin/vagas` - Gerenciar vagas
 - `GET /admin/settings` - Configurações do sistema
 
-## 💻 Stack Técnico
+## Stack Técnico
 
 ### Backend
 - **PHP 8.0+** - Linguagem servidor
@@ -213,7 +213,7 @@ GUPY_API_KEY=
 LINKEDIN_API_KEY=
 ```
 
-## 📧 Configuração de Email
+## Configuração de Email
 
 Para habilitar envio de emails (verificação, notificações):
 
@@ -227,7 +227,7 @@ MAIL_USERNAME=seu_usuario
 MAIL_PASSWORD=sua_senha
 ```
 
-## 🧪 Testando a Aplicação
+## Testando a Aplicação
 
 ### Criar Conta de Admin
 ```php
@@ -247,7 +247,7 @@ $user_data = [
 - **Matrícula**: MAT001
 - **Senha**: Senha123
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Erro "Banco de dados não encontrado"
 - Verificar credenciais em `.env`
@@ -263,13 +263,13 @@ $user_data = [
 - Verificar permissões em `/public/avatars`
 - Limite de upload no php.ini (`upload_max_filesize`)
 
-## 📚 Documentação Adicional
+## Documentação Adicional
 
 - [LGPD - Lei Geral de Proteção de Dados](https://www.gov.br/cidadania/pt-br/acesso-a-informacao/lgpd)
 - [WCAG 2.1 - Diretrizes de Acessibilidade](https://www.w3.org/WAI/WCAG21/quickref/)
 - [OWASP - Top 10 Vulnerabilidades Web](https://owasp.org/www-project-top-ten/)
 
-## 👥 Equipe de Desenvolvimento
+## Equipe de Desenvolvimento
 
 Desenvolvido pelos alunos do IFSP Guarulhos:
 
@@ -280,11 +280,11 @@ Desenvolvido pelos alunos do IFSP Guarulhos:
 - Rodrigo Querino do Amaral
 - Robert Vieira Souza
 
-## 📄 Licença
+## Licença
 
 Projeto desenvolvido para fins educacionais no IFSP Guarulhos.
 
-## 📞 Contato
+## Contato
 
 - Email: contato@estagiamais.ifsp.edu.br
 - IFSP Guarulhos: (11) 1024-5580
