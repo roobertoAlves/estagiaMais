@@ -126,15 +126,15 @@ a:hover {
     white-space: nowrap;
 }
 
-.btn-primary {
+.btn-entrar {
     background-color: var(--azul);
-    color: var(--branco);
+    color: var(--branco) !important;
     border-color: var(--azul);
 }
 
 .btn-primary:hover {
     background-color: var(--branco);
-    color: var(--azul);
+    color: var(--azul) !important; 
     box-shadow: var(--shadow-md);
 }
 
