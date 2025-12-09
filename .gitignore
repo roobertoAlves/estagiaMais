@@ -1,0 +1,36 @@
+# Arquivos de ambiente (credenciais)
+.env
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+error_log
+
+# Temporários
+*.tmp
+*.bak
+*.cache
+
+# Uploads de usuários
+public/images/avatars/*
+!public/images/avatars/.gitkeep
+
+# Composer (se usar)
+vendor/
+
+# Node modules (se usar)
+node_modules/
+
+# Debug
+debug-cpanel.php

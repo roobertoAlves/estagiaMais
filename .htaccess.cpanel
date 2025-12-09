@@ -2,11 +2,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Para desenvolvimento local (XAMPP)
-    RewriteBase /estagiaMais/
-    
-    # Para produção (cPanel) - COMENTE a linha acima e DESCOMENTE a linha abaixo
-    # RewriteBase /grupos/estagiaMais/
+    # Para produção (cPanel) - DESCOMENTE a linha abaixo
+    RewriteBase /grupos/estagiaMais/
     
     # Permitir acesso direto a arquivos estáticos
     RewriteCond %{REQUEST_URI} ^.+\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
