@@ -9,7 +9,7 @@ class StudentController extends Controller {
     public function __construct() {
         // Verificar se está autenticado
         if (!$this->isAuthenticated()) {
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         }
     }
 
@@ -558,7 +558,7 @@ class StudentController extends Controller {
                 <i class="fas fa-inbox"></i>
                 <h3>Nenhuma candidatura encontrada</h3>
                 <p>Explore as vagas disponíveis e candidate-se!</p>
-                <a href="/estagiaMais/aluno/vagas" class="btn-apply" style="display: inline-block; margin-top: var(--spacing-md);">
+                <a href="<?php echo url('/aluno/vagas'); ?>" class="btn-apply" style="display: inline-block; margin-top: var(--spacing-md);">
                     Ver Vagas Disponíveis
                 </a>
             </div>
@@ -964,7 +964,7 @@ class StudentController extends Controller {
                 <i class="fas fa-star"></i>
                 <h3>Nenhuma vaga favorita ainda</h3>
                 <p>Ao explorar vagas, clique na estrela para salvá-las aqui!</p>
-                <a href="/estagiaMais/aluno/vagas" class="btn-apply" style="display: inline-block; margin-top: var(--spacing-md);">
+                <a href="<?php echo url('/aluno/vagas'); ?>" class="btn-apply" style="display: inline-block; margin-top: var(--spacing-md);">
                     Explorar Vagas
                 </a>
             </div>

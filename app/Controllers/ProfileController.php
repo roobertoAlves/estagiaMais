@@ -9,7 +9,7 @@ class ProfileController extends Controller {
     public function index() {
         // Verificar autenticação
         if (!$this->isAuthenticated()) {
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         }
 
         $user = $this->getAuthUser();

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?? 'ESTAGIA+'; ?></title>
     
-    <link rel="stylesheet" href="/estagiaMais/public/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     
     <style>
@@ -571,49 +571,49 @@
 
             <ul class="sidebar-menu">
                 <li>
-                    <a href="/estagiaMais/aluno/dashboard" class="<?php echo ($page === 'dashboard' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/aluno/dashboard'); ?>" class="<?php echo ($page === 'dashboard' ? 'active' : ''); ?>">
                         <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/aluno/vagas" class="<?php echo ($page === 'vagas' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/aluno/vagas'); ?>" class="<?php echo ($page === 'vagas' ? 'active' : ''); ?>">
                         <i class="fas fa-briefcase"></i>
                         <span>Explorar Vagas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/aluno/candidaturas" class="<?php echo ($page === 'candidaturas' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/aluno/candidaturas'); ?>" class="<?php echo ($page === 'candidaturas' ? 'active' : ''); ?>">
                         <i class="fas fa-paper-plane"></i>
                         <span>Minhas Candidaturas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/aluno/curriculo" class="<?php echo ($page === 'curriculo' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/aluno/curriculo'); ?>" class="<?php echo ($page === 'curriculo' ? 'active' : ''); ?>">
                         <i class="fas fa-file-alt"></i>
                         <span>Meu Currículo</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/aluno/perfil" class="<?php echo ($page === 'perfil' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/aluno/perfil'); ?>" class="<?php echo ($page === 'perfil' ? 'active' : ''); ?>">
                         <i class="fas fa-user-circle"></i>
                         <span>Meu Perfil</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/aluno/favoritos" class="<?php echo ($page === 'favoritos' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/aluno/favoritos'); ?>" class="<?php echo ($page === 'favoritos' ? 'active' : ''); ?>">
                         <i class="fas fa-star"></i>
                         <span>Vagas Favoritas</span>
                     </a>
                 </li>
                 <li style="margin-top: var(--spacing-lg);">
-                    <a href="/estagiaMais/">
+                    <a href="<?php echo url('/'); ?>">
                         <i class="fas fa-arrow-left"></i>
                         <span>Voltar ao Site</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/logout">
+                    <a href="<?php echo url('/logout'); ?>">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Sair</span>
                     </a>

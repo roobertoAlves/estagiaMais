@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?? 'ESTAGIA+'; ?></title>
     
-    <link rel="stylesheet" href="/estagiaMais/public/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     
     <style>
@@ -331,7 +331,7 @@
                 <?php if ($page === 'login'): ?>
                     <h2 style="color: var(--branco); margin-bottom: var(--spacing-lg);">Entrar</h2>
 
-                    <form method="POST" action="/estagiaMais/login">
+                    <form method="POST" action="<?php echo url('/login'); ?>">
                         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
                         <div class="form-group">
@@ -385,7 +385,7 @@
                 <?php elseif ($page === 'register'): ?>
                     <h2 style="color: var(--azul); margin-bottom: var(--spacing-lg);">Criar Conta</h2>
 
-                    <form method="POST" action="/estagiaMais/registro" enctype="multipart/form-data">
+                    <form method="POST" action="<?php echo url('/registro'); ?>" enctype="multipart/form-data">
                         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
                         <div class="form-group">
@@ -521,11 +521,11 @@
 
             <div class="auth-footer">
                 <?php if ($page === 'login'): ?>
-                    Não tem conta? <a href="/estagiaMais/registro">Registre-se aqui</a><br>
-                    <small style="margin-top: 8px; display: block;"><a href="/estagiaMais/">Voltar ao início</a></small>
+                    Não tem conta? <a href="<?php echo url('/registro'); ?>">Registre-se aqui</a><br>
+                    <small style="margin-top: 8px; display: block;"><a href="<?php echo url('/'); ?>">Voltar ao início</a></small>
                 <?php else: ?>
-                    Já tem conta? <a href="/estagiaMais/login">Entre aqui</a><br>
-                    <small style="margin-top: 8px; display: block;"><a href="/estagiaMais/">Voltar ao início</a></small>
+                    Já tem conta? <a href="<?php echo url('/login'); ?>">Entre aqui</a><br>
+                    <small style="margin-top: 8px; display: block;"><a href="<?php echo url('/'); ?>">Voltar ao início</a></small>
                 <?php endif; ?>
             </div>
         </div>

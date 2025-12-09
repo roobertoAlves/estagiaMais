@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?? 'Dashboard Admin - ESTAGIA+'; ?></title>
+    <title><?php echo $title ?? 'ESTAGIA+ Admin'; ?></title>
     
-    <link rel="stylesheet" href="/estagiaMais/public/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     
     <style>
@@ -349,37 +349,37 @@
 
             <ul class="sidebar-menu">
                 <li>
-                    <a href="/estagiaMais/admin/dashboard" class="<?php echo ($page === 'dashboard' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/admin/dashboard'); ?>" class="<?php echo ($page === 'dashboard' ? 'active' : ''); ?>">
                         <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/admin/users" class="<?php echo ($page === 'users' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/admin/users'); ?>" class="<?php echo ($page === 'users' ? 'active' : ''); ?>">
                         <i class="fas fa-users"></i>
                         <span>Usuários</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/admin/vagas" class="<?php echo ($page === 'vagas' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/admin/vagas'); ?>" class="<?php echo ($page === 'vagas' ? 'active' : ''); ?>">
                         <i class="fas fa-briefcase"></i>
                         <span>Vagas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/admin/settings" class="<?php echo ($page === 'settings' ? 'active' : ''); ?>">
+                    <a href="<?php echo url('/admin/settings'); ?>" class="<?php echo ($page === 'settings' ? 'active' : ''); ?>">
                         <i class="fas fa-cog"></i>
                         <span>Configurações</span>
                     </a>
                 </li>
                 <li style="margin-top: var(--spacing-lg);">
-                    <a href="/estagiaMais/">
+                    <a href="<?php echo url('/'); ?>">
                         <i class="fas fa-arrow-left"></i>
                         <span>Voltar</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/estagiaMais/logout">
+                    <a href="<?php echo url('/logout'); ?>">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Sair</span>
                     </a>
@@ -452,7 +452,7 @@
                 <div class="table-container">
                     <div class="table-header">
                         <h3><i class="fas fa-user-plus"></i> Novos Usuários</h3>
-                        <a href="/estagiaMais/admin/users" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">
+                        <a href="<?php echo url('/admin/users'); ?>" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">
                             Ver Todos
                         </a>
                     </div>
@@ -486,7 +486,7 @@
                 <div class="table-container">
                     <div class="table-header">
                         <h3><i class="fas fa-list"></i> Vagas Recentes</h3>
-                        <a href="/estagiaMais/admin/vagas" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">
+                        <a href="<?php echo url('/admin/vagas'); ?>" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">
                             Ver Todas
                         </a>
                     </div>

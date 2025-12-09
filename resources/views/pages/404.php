@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página não encontrada - ESTAGIA+</title>
-    <link rel="stylesheet" href="/estagiaMais/public/css/style.css">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
     <style>
         body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #f7f7f7; }
         .error-wrapper { text-align: center; padding: 48px; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 520px; }
@@ -18,8 +18,8 @@
         <div class="error-code">404</div>
         <p class="error-message">Ops! A página que você procura não foi encontrada.</p>
         <div class="actions">
-            <a class="btn btn-primary" href="/estagiaMais/">Voltar para Início</a>
-            <a class="btn btn-secondary" href="/estagiaMais/login">Fazer Login</a>
+            <a class="btn btn-primary" href="<?php echo url('/'); ?>">Voltar para Início</a>
+            <a class="btn btn-secondary" href="<?php echo url('/login'); ?>">Fazer Login</a>
         </div>
     </div>
 </body>

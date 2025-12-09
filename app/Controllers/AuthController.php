@@ -3,9 +3,7 @@ namespace App\Controllers;
 
 require_once BASE_PATH . '/app/Models/User.php';
 
-/**
- * AuthController - Gerencia autenticação
- */
+
 class AuthController extends Controller {
     
     public function loginForm() {
@@ -20,14 +18,14 @@ class AuthController extends Controller {
 
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         }
 
         // Validar CSRF
         $csrf = $_POST['csrf_token'] ?? '';
         if (!$this->validateCsrfToken($csrf)) {
             $_SESSION['error'] = 'Sessão expirada. Tente novamente.';
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         }
 
         // Validar entrada
@@ -41,7 +39,7 @@ class AuthController extends Controller {
 
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         }
 
         // Login admin pré-definido (bypass de banco)
@@ -55,7 +53,7 @@ class AuthController extends Controller {
             ];
 
             $_SESSION['success'] = 'Bem-vindo, administrador!';
-            $this->redirect('/estagiaMais/admin/dashboard');
+            $this->redirect(url('/admin/dashboard'));
         }
 
         // Buscar usuário no banco (senha sem hash conforme solicitação)
@@ -64,7 +62,7 @@ class AuthController extends Controller {
 
         if (!$user || $password !== $user['password']) {
             $_SESSION['error'] = 'Email ou senha incorretos.';
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         }
 
         // Criar sessão
@@ -87,11 +85,11 @@ class AuthController extends Controller {
         $_SESSION['success'] = 'Bem-vindo de volta!';
 
         if (($user['role'] ?? '') === 'admin') {
-            $this->redirect('/estagiaMais/admin/dashboard');
+            $this->redirect(url('/admin/dashboard'));
         }
 
         // Redirecionar estudantes para o painel do aluno
-        $this->redirect('/estagiaMais/aluno/dashboard');
+        $this->redirect(url('/aluno/dashboard'));
     }
 
     public function registerForm() {
@@ -106,14 +104,14 @@ class AuthController extends Controller {
 
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/estagiaMais/registro');
+            $this->redirect(url('/registro'));
         }
 
         // Validar CSRF
         $csrf = $_POST['csrf_token'] ?? '';
         if (!$this->validateCsrfToken($csrf)) {
             $_SESSION['error'] = 'Sessão expirada. Tente novamente.';
-            $this->redirect('/estagiaMais/registro');
+            $this->redirect(url('/registro'));
         }
 
         // Validar entrada
@@ -157,14 +155,14 @@ class AuthController extends Controller {
 
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
-            $this->redirect('/estagiaMais/registro');
+            $this->redirect(url('/registro'));
         }
 
         // Verificar se email já existe
         $user_model = new \App\Models\User();
         if ($user_model->findByEmail($email)) {
             $_SESSION['error'] = 'Este email já está registrado.';
-            $this->redirect('/estagiaMais/registro');
+            $this->redirect(url('/registro'));
         }
 
         // Processar avatar se enviado
@@ -187,16 +185,16 @@ class AuthController extends Controller {
 
         if ($user_model->create($new_user)) {
             $_SESSION['success'] = 'Cadastro realizado com sucesso! Faça login.';
-            $this->redirect('/estagiaMais/login');
+            $this->redirect(url('/login'));
         } else {
             $_SESSION['error'] = 'Erro ao criar conta. Tente novamente.';
-            $this->redirect('/estagiaMais/registro');
+            $this->redirect(url('/registro'));
         }
     }
 
     public function logout() {
         session_destroy();
-        $this->redirect('/estagiaMais/');
+        $this->redirect(url('/'));
     }
 
     /**
