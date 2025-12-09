@@ -2,12 +2,18 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Para produção (cPanel) - DESCOMENTE a linha abaixo
-    RewriteBase /grupos/estagiaMais/
+    # Para produção (cPanel)
+    RewriteBase /
     
-    # Permitir acesso direto a arquivos estáticos
-    RewriteCond %{REQUEST_URI} ^.+\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+    # Permitir acesso direto a arquivos estáticos na pasta public
+    RewriteCond %{REQUEST_URI} ^/public/
+    RewriteCond %{REQUEST_FILENAME} -f
     RewriteRule ^ - [L]
+    
+    # Redirecionar requisições de arquivos estáticos para a pasta public
+    RewriteCond %{REQUEST_URI} ^.+\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+    RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
+    RewriteRule ^(.*)$ public/$1 [L]
     
     # Se não for arquivo ou diretório real, redirecionar para index.php
     RewriteCond %{REQUEST_FILENAME} !-f
