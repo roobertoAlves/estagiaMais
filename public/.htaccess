@@ -1,0 +1,25 @@
+# Permitir acesso a todos os arquivos estáticos na pasta public
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
+
+# Headers para cache
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico|svg)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+</IfModule>
+
+# Tipos MIME
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType image/png .png
+    AddType image/jpeg .jpg .jpeg
+    AddType image/gif .gif
+    AddType image/svg+xml .svg
+</IfModule>

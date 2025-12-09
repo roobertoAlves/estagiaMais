@@ -2,20 +2,18 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Detectar a pasta base automaticamente
-    # Para cPanel: /grupos/estagiaMais/
-    # Para localhost: /estagiaMais/
+
     RewriteBase /grupos/estagiaMais/
     
-    # Não reescrever se for arquivo ou diretório real
+    RewriteCond %{REQUEST_URI} ^.+\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+    RewriteRule ^ - [L]
+    
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     
-    # Reescrever todas as requisições para index.php
     RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 </IfModule>
 
-# Configurações de segurança
 <FilesMatch "^\.">
     <IfModule mod_authz_core.c>
         Require all denied
