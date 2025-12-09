@@ -126,8 +126,8 @@ a:hover {
     white-space: nowrap;
 }
 
-.btn-entrar {
-    background-color: var(--azul);
+.btn-primary{
+    background-color: var(--azul) !important;
     color: var(--branco) !important;
     border-color: var(--azul);
 }
