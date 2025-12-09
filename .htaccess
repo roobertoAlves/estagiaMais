@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /estagiaMais/
+    # RewriteBase será definido automaticamente
+    # Para localhost: /estagiaMais/
+    # Para cPanel: /
     
     # Evitar reescrever para arquivos e diretórios existentes
     RewriteCond %{REQUEST_FILENAME} !-f

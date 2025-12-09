@@ -1,11 +1,4 @@
--- ESTAGIA+ Database Schema
--- Plataforma de Estágios para IFSP Guarulhos
 
--- Criar banco de dados
-CREATE DATABASE IF NOT EXISTS estagia_plus CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE estagia_plus;
-
--- Tabela de Usuários
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,

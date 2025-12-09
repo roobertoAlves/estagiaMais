@@ -2,6 +2,14 @@
 
 date_default_timezone_set('America/Sao_Paulo');
 
+if (file_exists(__DIR__ . '/.env')) {
+    $env = parse_ini_file(__DIR__ . '/.env');
+    foreach ($env as $key => $value) {
+        $_ENV[$key] = $value;
+        putenv("$key=$value");
+    }
+}
+
 // Definir ambiente
 define('APP_ENV', $_ENV['APP_ENV'] ?? 'development');
 define('APP_DEBUG', APP_ENV === 'development');
@@ -10,10 +18,14 @@ define('PUBLIC_PATH', BASE_PATH . '/public');
 define('APP_PATH', BASE_PATH . '/app');
 define('RESOURCES_PATH', BASE_PATH . '/resources');
 
-// Sessão
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$script = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME'] ?? '');
+define('BASE_URL', $script);
+define('FULL_URL', $protocol . '://' . $host . $script);
+
 session_start();
 
-// Autoload classes
 spl_autoload_register(function ($class) {
     $prefix = 'App\\';
     $base_dir = APP_PATH . '/';
@@ -31,12 +43,15 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Carregar configurações
 $config_path = BASE_PATH . '/config/database.php';
 if (file_exists($config_path)) {
     require_once $config_path;
 }
 
-// Roteamento simples
+$helpers_path = APP_PATH . '/helpers.php';
+if (file_exists($helpers_path)) {
+    require_once $helpers_path;
+}
+
 require_once BASE_PATH . '/routes.php';
 ?>

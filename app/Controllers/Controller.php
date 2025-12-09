@@ -26,17 +26,24 @@ class Controller {
         return ob_get_clean();
     }
 
-    /**
-     * Redirecionar para URL
-     */
+
     public function redirect($url) {
+        if (strpos($url, '/') === 0 && defined('BASE_URL')) {
+            $url = BASE_URL . $url;
+        }
         header("Location: {$url}");
         exit;
     }
 
-    /**
-     * Retornar JSON
-     */
+
+    protected function url($path = '') {
+        return BASE_URL . '/' . ltrim($path, '/');
+    }
+
+    protected function asset($path) {
+        return BASE_URL . '/public/' . ltrim($path, '/');
+    }
+
     public function json($data, $status_code = 200) {
         header('Content-Type: application/json');
         http_response_code($status_code);
@@ -44,41 +51,25 @@ class Controller {
         exit;
     }
 
-    /**
-     * Verificar se usuário está autenticado
-     */
     protected function isAuthenticated() {
         return isset($_SESSION['user_id']);
     }
 
-    /**
-     * Obter usuário autenticado
-     */
     protected function getAuthUser() {
         if ($this->isAuthenticated()) {
             return $_SESSION['user'] ?? null;
         }
         return null;
     }
-
-    /**
-     * Verificar permissão de admin
-     */
     protected function isAdmin() {
         return $this->isAuthenticated() && ($_SESSION['user']['role'] ?? null) === 'admin';
     }
 
-    /**
-     * Validar CSRF token
-     */
     protected function validateCsrfToken($token) {
         return isset($_SESSION['csrf_token']) && 
                hash_equals($_SESSION['csrf_token'], $token);
     }
 
-    /**
-     * Gerar CSRF token
-     */
     protected function generateCsrfToken() {
         if (!isset($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -86,9 +77,6 @@ class Controller {
         return $_SESSION['csrf_token'];
     }
 
-    /**
-     * Validar entrada
-     */
     protected function validate($data, $rules) {
         $errors = [];
 
@@ -127,9 +115,6 @@ class Controller {
         return $errors;
     }
 
-    /**
-     * Sanitizar entrada
-     */
     protected function sanitize($data) {
         if (is_array($data)) {
             return array_map([$this, 'sanitize'], $data);
