@@ -1,9 +1,12 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # Para subdomínios (estagiamais.simplifica.gru.br/)
+    RewriteBase /
     
     # Para desenvolvimento local (XAMPP)
-    RewriteBase /estagiaMais/
+    # RewriteBase /estagiaMais/
     
     # Para produção (cPanel) - COMENTE a linha acima e DESCOMENTE a linha abaixo
     # RewriteBase /grupos/estagiaMais/
