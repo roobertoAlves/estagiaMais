@@ -2,15 +2,20 @@
 
 date_default_timezone_set('America/Sao_Paulo');
 
-// Carregar variáveis de ambiente do arquivo .env
-if (file_exists(__DIR__ . '/.env')) {
-    $env = @parse_ini_file(__DIR__ . '/.env');
-    if ($env === false) {
-        die('Erro ao ler arquivo .env. Verifique a sintaxe do arquivo (linha 7). Remova parênteses, aspas especiais ou caracteres inválidos.');
-    }
-    foreach ($env as $key => $value) {
-        $_ENV[$key] = $value;
-        putenv("$key=$value");
+// Carregar variáveis de ambiente do .env
+$envPath = __DIR__ . '/.env';
+if (file_exists($envPath)) {
+    $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue; // Ignora comentários
+        $parts = explode('=', $line, 2);
+        if (count($parts) === 2) {
+            $key = trim($parts[0]);
+            $value = trim($parts[1]);
+            $value = trim($value, " \t\n\r\0\x0B\"'"); // Remove aspas
+            $_ENV[$key] = $value;
+            putenv("$key=$value");
+        }
     }
 }
 
