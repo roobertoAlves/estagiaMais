@@ -4,7 +4,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 // Carregar variáveis de ambiente do arquivo .env
 if (file_exists(__DIR__ . '/.env')) {
-    $env = @parse_ini_file(__DIR__ . '/.env');
+    $env = parse_ini_file(__DIR__ . '/.env');
     if ($env === false) {
         die('Erro ao ler arquivo .env. Verifique a sintaxe do arquivo (linha 7). Remova parênteses, aspas especiais ou caracteres inválidos.');
     }
