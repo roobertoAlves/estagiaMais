@@ -4,24 +4,36 @@
  * Define rotas da aplicação
  */
 
-$request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$request_uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $request_method = $_SERVER['REQUEST_METHOD'];
 
-// Remove /estagiaMais do início da URI se existir
-$script_name = dirname($_SERVER['SCRIPT_NAME']);
-if (strpos($request_uri, $script_name) === 0) {
-    $request_uri = substr($request_uri, strlen($script_name));
+// --- BLOCO CORRIGIDO: Limpeza Universal da URI ---
+
+// Tenta obter a BASE_URL definida em index.php (que deve ser '' ou '/subdiretorio')
+$base_url = defined('BASE_URL') ? BASE_URL : dirname($_SERVER['SCRIPT_NAME']);
+$base_url = rtrim($base_url, '/'); // Garante que a base não termine em barra
+
+// 1. Remove a BASE_URL do início da URI, se estiver presente (funciona para subdiretórios e root)
+if (!empty($base_url) && $base_url !== '/' && strpos($request_uri, $base_url) === 0) {
+    $request_uri = substr($request_uri, strlen($base_url));
 }
 
-// Remove barra final
+// 2. Remove qualquer ocorrência de /index.php, /index.php/ ou barra final
+$request_uri = str_replace('/index.php', '', $request_uri); 
 $request_uri = rtrim($request_uri, '/') ?: '/';
 
-// Array de rotas
+// 3. Garante que a URI limpa comece com uma única barra (e.g., /login)
+$request_uri = '/' . ltrim($request_uri, '/');
+
+// --- FIM DO BLOCO CORRIGIDO ---
+
+
+// Array de rotas (mantido inalterado, pois as rotas estavam corretas)
 $routes = [
     // Métodos GET
     'GET' => [
         '/' => 'PagesController@home',
-        '/index.php' => 'PagesController@home',
+        // '/index.php' foi removido das rotas pois agora é tratado na limpeza da URI
         '/sobre' => 'PagesController@about',
         '/login' => 'AuthController@loginForm',
         '/registro' => 'AuthController@registerForm',
@@ -52,6 +64,7 @@ $route_found = false;
 
 if (isset($routes[$request_method])) {
     foreach ($routes[$request_method] as $route => $handler) {
+        // A comparação agora deve ser exata graças à limpeza universal
         if ($route === $request_uri) {
             $route_found = true;
             list($controller, $method) = explode('@', $handler);
@@ -72,7 +85,8 @@ if (isset($routes[$request_method])) {
 // Se nenhuma rota foi encontrada
 if (!$route_found) {
     http_response_code(404);
-    include RESOURCES_PATH . '/views/pages/404.php';
+    // Presumindo que RESOURCES_PATH foi definido em index.php
+    include RESOURCES_PATH . '/views/pages/404.php'; 
     exit;
 }
 ?>

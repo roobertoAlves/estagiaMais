@@ -14,7 +14,7 @@ if (file_exists(__DIR__ . '/.env')) {
     }
 }
 
-// Definir ambiente
+// Definir ambiente e caminhos
 define('APP_ENV', $_ENV['APP_ENV'] ?? 'development');
 define('APP_DEBUG', APP_ENV === 'development');
 define('BASE_PATH', __DIR__);
@@ -22,40 +22,27 @@ define('PUBLIC_PATH', BASE_PATH . '/public');
 define('APP_PATH', BASE_PATH . '/app');
 define('RESOURCES_PATH', BASE_PATH . '/resources');
 
-// Detectar base URL automaticamente
+// --- INÍCIO DO BLOCO CORRIGIDO: Detecção de BASE_URL simplificada via .env ---
+
+// 1. Obter o valor de configuração do .env. 
+// Deve ser vazio ('') para subdomínio (estagiamais.simplifica.gru.br/)
+// Deve ser 'estagiaMais' para desenvolvimento (localhost/estagiaMais)
+$script = $_ENV['APP_BASE_DIR'] ?? ''; 
+
+// 2. Limpar e formatar o caminho para garantir que seja um prefixo válido
+$script = trim($script, '/');
+$script = empty($script) ? '' : '/' . $script;
+
+// 3. Definir a BASE_URL
+define('BASE_URL', $script);
+
+// 4. Calcular o FULL_URL
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+define('FULL_URL', $protocol . '://' . $host . $script);
 
-$scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
-$script = str_replace('/index.php', '', $scriptName);
+// --- FIM DO BLOCO CORRIGIDO ---
 
-// Se o script terminar com /, remover a barra
-$script = rtrim($script, '/');
-
-// Se estiver vazio, tentar com REQUEST_URI
-if (empty($script)) {
-    $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
-    $script = preg_replace('#/index\.php.*#', '', $requestUri);
-    $script = rtrim($script, '/');
-}
-
-// Se ainda estiver vazio, tentar documentroot
-if (empty($script) || $script === '') {
-    $docRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
-    $realPath = realpath(__DIR__);
-    if (!empty($docRoot) && !empty($realPath)) {
-        $script = str_replace($docRoot, '', $realPath);
-        $script = str_replace('\\', '/', $script);
-    }
-}
-
-// Fallback para localhost
-if (empty($script) && (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false)) {
-    $script = '/estagiaMais';
-}
-
-define('BASE_URL', $script ?: '');
-define('FULL_URL', $protocol . '://' . $host . ($script ?: ''));
 
 session_start();
 
