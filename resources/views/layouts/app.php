@@ -26,7 +26,6 @@
                     <a href="#sobre">Sobre</a>
                     <a href="#membros">Membros</a>
                     <a href="#local">Local</a>
-                    <a href="#vagas">Vagas</a>
                     <a href="#contato">Contato</a>
                     <?php if ($user ?? false): ?>
                         <a href="<?php echo url('perfil'); ?>" class="btn btn-secondary btn-sm">Meu Perfil</a>
@@ -61,9 +60,6 @@
                         <a href="<?php echo url('perfil'); ?>" class="btn btn-secondary btn-lg">
                             <i class="fas fa-user"></i> Ir para Perfil
                         </a>
-                        <a href="#vagas" class="btn btn-outline btn-lg" style="color: var(--branco); border-color: var(--branco);">
-                            <i class="fas fa-briefcase"></i> Ver Vagas
-                        </a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -76,17 +72,17 @@
 
                 <div class="grid-3 mt-lg">
                     <div class="card" data-aos="fade-up">
-                        <h3 style="color: var(--amarelo);">Missão</h3>
+                        <h3 style="color: var(--amarelo);"><i class="fas fa-bullseye"></i> Missão</h3>
                         <p>Oferecer aos estudantes uma plataforma integrada e acessível que centraliza oportunidades de estágio, facilita a comunicação com professores e empresas, e promove o desenvolvimento profissional por meio de ferramentas digitais eficientes, seguras e alinhadas ao ambiente acadêmico.</p>
                     </div>
 
                     <div class="card" data-aos="fade-up" data-aos-delay="100">
-                        <h3 style="color: var(--amarelo);">Visão</h3>
+                        <h3 style="color: var(--amarelo);"><i class="fas fa-eye"></i> Visão</h3>
                         <p>Tornar-se a principal plataforma acadêmica de apoio à empregabilidade estudantil no IFSP e, futuramente, expandir-se para instituições de ensino em todo o país.</p>
                     </div>
 
                     <div class="card" data-aos="fade-up" data-aos-delay="200">
-                        <h3 style="color: var(--amarelo);">Valores</h3>
+                        <h3 style="color: var(--amarelo);"><i class="fas fa-gem"></i> Valores</h3>
                         <p><strong>Acessibilidade</strong> • <strong>Inovação</strong> • <strong>Ética</strong> • <strong>Responsabilidade Social</strong> • <strong>Colaboração</strong> • <strong>Credibilidade</strong> • <strong>Desenvolvimento Contínuo</strong></p>
                     </div>
                 </div>
@@ -232,22 +228,7 @@
             </div>
         </section>
 
-        <section class="vagas-section" id="vagas">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Vagas de Estágio</h2>
-
-                <div class="vagas-placeholder" data-aos="fade-up">
-                    <i class="fas fa-briefcase" style="font-size: 3rem; color: var(--amarelo); margin-bottom: var(--spacing-md);"></i>
-                    <h3 style="color: var(--azul);">Vagas em Breve</h3>
-                    <p style="color: var(--cinza-medio); margin-bottom: var(--spacing-md);">
-                        Estamos integrando plataformas externas para oferecer oportunidades incríveis!
-                    </p>
-                    <button class="btn btn-primary" onclick="showAlert('Integração de plataformas em desenvolvimento')">
-                        <i class="fas fa-link"></i> Conectar Plataformas Externas
-                    </button>
-                </div>
-            </div>
-        </section>
+        <!-- Vagas removidas da home -->
 
         <!-- Modal para Membros -->
         <div id="memberModal" class="modal">
