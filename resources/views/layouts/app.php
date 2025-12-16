@@ -121,7 +121,7 @@
 
                 <div class="swot-grid">
                     <div class="swot-card swot-strengths" data-aos="fade-right">
-                        <h3><i class="fas fa-check-circle"></i> Strengths</h3>
+                        <h3><i class="fas fa-check-circle"></i> Forças</h3>
                         <ul>
                             <li>Centralização de vagas em único ambiente</li>
                             <li>Integração com dados da instituição</li>
@@ -132,7 +132,7 @@
                     </div>
 
                     <div class="swot-card swot-weaknesses" data-aos="fade-left">
-                        <h3><i class="fas fa-times-circle"></i> Weaknesses</h3>
+                        <h3><i class="fas fa-times-circle"></i> Fraquezas</h3>
                         <ul>
                             <li>Dependência de APIs externas</li>
                             <li>Necessidade de apoio administrativo</li>
@@ -143,7 +143,7 @@
                     </div>
 
                     <div class="swot-card swot-opportunities" data-aos="fade-right" data-aos-delay="100">
-                        <h3><i class="fas fa-star"></i> Opportunities</h3>
+                        <h3><i class="fas fa-star"></i> Oportunidades</h3>
                         <ul>
                             <li>Alta demanda por soluções de empregabilidade</li>
                             <li>Expansão para outros campi do IFSP</li>
@@ -154,7 +154,7 @@
                     </div>
 
                     <div class="swot-card swot-threats" data-aos="fade-left" data-aos-delay="100">
-                        <h3><i class="fas fa-exclamation-circle"></i> Threats</h3>
+                        <h3><i class="fas fa-exclamation-circle"></i> Ameaças</h3>
                         <ul>
                             <li>Concorrência com plataformas consolidadas</li>
                             <li>Restrições da LGPD</li>
