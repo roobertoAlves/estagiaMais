@@ -3,372 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $description ?? ''; ?>">
-    <title><?php echo $title ?? 'ESTAGIA+'; ?></title>
-    
+    <meta name="description" content="<?php echo e($description ?? 'ESTAGIA+'); ?>">
+    <meta name="theme-color" content="#071126">
+    <title><?php echo e($title ?? 'ESTAGIA+'); ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
     <link rel="stylesheet" href="<?php echo asset('css/app-home.css'); ?>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body id="top">
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="navbar-brand">
-                    ESTAGIA<span>+</span>
-                </div>
-                <div class="navbar-menu">
-                    <a href="#top" class="<?php echo $page === 'home' ? 'active' : ''; ?>">Início</a>
-                    <a href="#sobre">Sobre</a>
-                    <a href="#membros">Membros</a>
-                    <a href="#local">Local</a>
-                    <a href="#contato">Contato</a>
-                    <?php if ($user ?? false): ?>
-                        <a href="<?php echo url('perfil'); ?>" class="btn btn-secondary btn-sm">Meu Perfil</a>
-                        <a href="<?php echo url('logout'); ?>" class="btn btn-outline btn-sm">Sair</a>
-                    <?php else: ?>
-                        <a href="<?php echo url('login'); ?>" class="btn btn-primary">Entrar</a>
-                        <a href="<?php echo url('registro'); ?>" class="btn btn-secondary">Cadastrar</a>
-                    <?php endif; ?>
-                </div>
+<body class="page-home" data-base-url="<?php echo e(BASE_URL); ?>">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="page-loader" aria-hidden="true"><span></span></div>
+
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="#top" aria-label="ESTAGIA+ — voltar ao início">
+                <span class="brand-mark">+</span>
+                <span>ESTAGIA<span>+</span></span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Abrir menu">
+                <span></span><span></span>
+            </button>
+            <nav class="main-nav" id="main-navigation" aria-label="Navegação principal">
+                <a class="nav-link is-active" href="#top">Início</a>
+                <a class="nav-link" href="#sobre">Sobre</a>
+                <a class="nav-link" href="#membros">Membros</a>
+                <a class="nav-link" href="#local">Local</a>
+                <a class="nav-link" href="#contato">Contato</a>
             </nav>
+            <a class="header-cta" href="#membros"><span>Conheça a equipe</span><span aria-hidden="true">↗</span></a>
         </div>
     </header>
 
-    <!-- Conteúdo da página -->
-    <?php if ($page === 'home'): ?>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-content">
-                <h1><?php echo $title; ?></h1>
-                <p class="subtitle">
-                    <?php echo $description; ?>
-                </p>
-                <div class="cta-buttons">
-                    <?php if (!($user ?? false)): ?>
-                        <a href="<?php echo url('registro'); ?>" class="btn btn-secondary btn-lg">
-                            <i class="fas fa-user-plus"></i> Criar Conta
-                        </a>
-                        <a href="#sobre" class="btn btn-outline btn-lg" style="color: var(--branco); border-color: var(--branco);">
-                            <i class="fas fa-arrow-down"></i> Saiba Mais
-                        </a>
-                    <?php else: ?>
-                        <a href="<?php echo url('perfil'); ?>" class="btn btn-secondary btn-lg">
-                            <i class="fas fa-user"></i> Ir para Perfil
-                        </a>
-                    <?php endif; ?>
+    <main id="conteudo">
+        <section class="hero section-dark" id="top" aria-labelledby="hero-title">
+            <div class="hero-noise" aria-hidden="true"></div>
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="hero-banner" data-reveal="scale" aria-hidden="true">
+                <img class="hero-banner-image" src="<?php echo asset('images/hero/estagiamais-hero-banner.webp'); ?>" alt="Estudante trabalhando em um campus conectado a novas oportunidades">
+                <div class="hero-banner-overlay"></div>
+                <div class="hero-banner-caption"><span>conexão que gera futuro</span><span>ESTAGIA+ / IFSP</span></div>
+            </div>
+            <div class="shell hero-layout">
+                <div class="hero-copy" data-reveal="up">
+                    <p class="section-kicker"><span class="status-dot"></span> IFSP · Guarulhos · 2024/25</p>
+                    <h1 id="hero-title">O primeiro <em>+</em><br><span>da sua carreira.</span></h1>
+                    <p class="hero-description">Uma plataforma acadêmica para descobrir oportunidades, compartilhar possibilidades e transformar intenção em experiência.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#sobre">Explorar o projeto <span aria-hidden="true">↘</span></a>
+                        <a class="text-link" href="#membros">Conhecer os membros <span aria-hidden="true">→</span></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sobre a Empresa -->
-        <section class="about-section" id="sobre">
-            <div class="container">
-                <h2>Sobre ESTAGIA+</h2>
-
-                <div class="grid-3 mt-lg">
-                    <div class="card" data-aos="fade-up">
-                        <h3 style="color: var(--amarelo);"><i class="fas fa-bullseye"></i> Missão</h3>
+        <section class="intro section-light" id="sobre" aria-labelledby="about-title">
+            <div class="shell intro-grid">
+                <div class="section-heading" data-reveal="up">
+                    <p class="section-kicker">01 / sobre</p>
+                    <h2 id="about-title">Oportunidade<br><em>não espera.</em></h2>
+                </div>
+                <div class="intro-copy" data-reveal="up">
+                    <p class="lead">O ESTAGIA+ nasce para aproximar estudantes, professores e empresas em um espaço mais claro, acessível e humano.</p>
+                    <p>Centralizamos possibilidades de estágio, organizamos caminhos e damos visibilidade aos talentos que estão construindo o próximo capítulo da própria carreira.</p>
+                    <a class="underlined-link" href="#contato">Fale com a gente <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+            <div class="shell about-showcase">
+                <header class="about-showcase-heading">
+                    <p class="section-kicker">Conheça o projeto</p>
+                    <h3>Sobre ESTAGIA+</h3>
+                    <p>Uma plataforma acadêmica pensada para aproximar estudantes, oportunidades e desenvolvimento profissional.</p>
+                </header>
+                <div class="about-info-list">
+                    <article class="about-info-card">
+                        <div class="about-info-title"><span class="about-icon icon-mission" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"></circle></svg></span><h4>Missão</h4></div>
                         <p>Oferecer aos estudantes uma plataforma integrada e acessível que centraliza oportunidades de estágio, facilita a comunicação com professores e empresas, e promove o desenvolvimento profissional por meio de ferramentas digitais eficientes, seguras e alinhadas ao ambiente acadêmico.</p>
-                    </div>
-
-                    <div class="card" data-aos="fade-up" data-aos-delay="100">
-                        <h3 style="color: var(--amarelo);"><i class="fas fa-eye"></i> Visão</h3>
+                    </article>
+                    <article class="about-info-card">
+                        <div class="about-info-title"><span class="about-icon icon-vision" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z"></path><circle cx="12" cy="12" r="2.6"></circle></svg></span><h4>Visão</h4></div>
                         <p>Tornar-se a principal plataforma acadêmica de apoio à empregabilidade estudantil no IFSP e, futuramente, expandir-se para instituições de ensino em todo o país.</p>
-                    </div>
-
-                    <div class="card" data-aos="fade-up" data-aos-delay="200">
-                        <h3 style="color: var(--amarelo);"><i class="fas fa-gem"></i> Valores</h3>
-                        <p><strong>Acessibilidade</strong> • <strong>Inovação</strong> • <strong>Ética</strong> • <strong>Responsabilidade Social</strong> • <strong>Colaboração</strong> • <strong>Credibilidade</strong> • <strong>Desenvolvimento Contínuo</strong></p>
-                    </div>
+                    </article>
+                    <article class="about-info-card">
+                        <div class="about-info-title"><span class="about-icon icon-values" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 8-8 10L4 11l8-8Z"></path><path d="m4 11 8 3 8-3"></path></svg></span><h4>Valores</h4></div>
+                        <p class="values-inline">Acessibilidade <span>•</span> Inovação <span>•</span> Ética <span>•</span> Responsabilidade Social <span>•</span> Colaboração <span>•</span> Credibilidade <span>•</span> Desenvolvimento Contínuo</p>
+                    </article>
                 </div>
-
-                <!-- Valores (Cards) -->
-                <h3 class="mt-xl mb-lg">Nossos Valores</h3>
-                <div class="values-cards">
-                    <div class="value-card" data-aos="fade-up">
-                        <h3><i class="fas fa-universal-access"></i> Acessibilidade</h3>
-                        <p>Garantir que todos os estudantes tenham acesso igualitário às oportunidades.</p>
-                    </div>
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                        <h3><i class="fas fa-lightbulb"></i> Inovação</h3>
-                        <p>Promover soluções criativas e tecnológicas que otimizem o processo de busca por estágios.</p>
-                    </div>
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                        <h3><i class="fas fa-shield-alt"></i> Ética e Transparência</h3>
-                        <p>Tratar dados com responsabilidade seguindo rigorosamente a LGPD.</p>
-                    </div>
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                        <h3><i class="fas fa-handshake"></i> Colaboração</h3>
-                        <p>Estimular a interação entre alunos, professores e empresas.</p>
-                    </div>
+            </div>
+            <div class="shell values-showcase">
+                <header class="values-showcase-heading"><p class="section-kicker">Princípios do projeto</p><h3>Nossos Valores</h3></header>
+                <div class="values-feature-grid">
+                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"></circle><path d="M6 21v-4.2a6 6 0 0 1 12 0V21M12 10v6M9 13h6"></path></svg></span><h4>Acessibilidade</h4><p>Garantir que todos os estudantes tenham acesso igualitário às oportunidades.</p></article>
+                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8 14c-1.3-1.1-2-2.7-2-4.5a6 6 0 1 1 12 0c0 1.8-.7 3.4-2 4.5-.8.7-1.2 1.5-1.2 2.5H9.2c0-1-.4-1.8-1.2-2.5Z"></path></svg></span><h4>Inovação</h4><p>Promover soluções criativas e tecnológicas que otimizem o processo de busca por estágios.</p></article>
+                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><h4>Ética e Transparência</h4><p>Tratar dados com responsabilidade seguindo rigorosamente a LGPD.</p></article>
+                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 13 5 10l-3 3 5 5 3-3M16 13l3-3 3 3-5 5-3-3M9 15h6"></path></svg></span><h4>Colaboração</h4><p>Estimular a interação entre alunos, professores e empresas.</p></article>
+                </div>
+            </div>
+            <div class="shell swot-showcase" aria-labelledby="swot-title">
+                <header class="swot-showcase-heading"><p class="section-kicker">Planejamento estratégico</p><h3 id="swot-title">Análise SWOT</h3></header>
+                <div class="swot-panel-grid">
+                    <article class="swot-panel swot-strength"><h4><span aria-hidden="true">✓</span> Forças</h4><ul><li>Centralização de vagas em único ambiente</li><li>Integração com dados da instituição</li><li>Feedback direto de professores</li><li>Chat integrado</li><li>Interface personalizada para IFSP</li></ul></article>
+                    <article class="swot-panel swot-weakness"><h4><span aria-hidden="true">×</span> Fraquezas</h4><ul><li>Dependência de APIs externas</li><li>Necessidade de apoio administrativo</li><li>Complexidade do escopo inicial</li><li>Manutenção contínua requerida</li><li>Inexperiência gerencial</li></ul></article>
+                    <article class="swot-panel swot-opportunity"><h4><span aria-hidden="true">★</span> Oportunidades</h4><ul><li>Alta demanda por soluções de empregabilidade</li><li>Expansão para outros campi do IFSP</li><li>Parcerias com empresas</li><li>Acesso a editais de inovação</li><li>Gamificação e trilhas de capacitação</li></ul></article>
+                    <article class="swot-panel swot-threat"><h4><span aria-hidden="true">!</span> Ameaças</h4><ul><li>Concorrência com plataformas consolidadas</li><li>Restrições da LGPD</li><li>Barreiras técnicas em integrações</li><li>Possível baixa adesão inicial</li><li>Dependência de engajamento de professores</li></ul></article>
                 </div>
             </div>
         </section>
 
-        <!-- SWOT Analysis -->
-        <section class="swot-section">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Análise SWOT</h2>
-
-                <div class="swot-grid">
-                    <div class="swot-card swot-strengths" data-aos="fade-right">
-                        <h3><i class="fas fa-check-circle"></i> Forças</h3>
-                        <ul>
-                            <li>Centralização de vagas em único ambiente</li>
-                            <li>Integração com dados da instituição</li>
-                            <li>Feedback direto de professores</li>
-                            <li>Chat integrado</li>
-                            <li>Interface personalizada para IFSP</li>
-                        </ul>
-                    </div>
-
-                    <div class="swot-card swot-weaknesses" data-aos="fade-left">
-                        <h3><i class="fas fa-times-circle"></i> Fraquezas</h3>
-                        <ul>
-                            <li>Dependência de APIs externas</li>
-                            <li>Necessidade de apoio administrativo</li>
-                            <li>Complexidade do escopo inicial</li>
-                            <li>Manutenção contínua requerida</li>
-                            <li>Inexperiência gerencial</li>
-                        </ul>
-                    </div>
-
-                    <div class="swot-card swot-opportunities" data-aos="fade-right" data-aos-delay="100">
-                        <h3><i class="fas fa-star"></i> Oportunidades</h3>
-                        <ul>
-                            <li>Alta demanda por soluções de empregabilidade</li>
-                            <li>Expansão para outros campi do IFSP</li>
-                            <li>Parcerias com empresas</li>
-                            <li>Acesso a editais de inovação</li>
-                            <li>Gamificação e trilhas de capacitação</li>
-                        </ul>
-                    </div>
-
-                    <div class="swot-card swot-threats" data-aos="fade-left" data-aos-delay="100">
-                        <h3><i class="fas fa-exclamation-circle"></i> Ameaças</h3>
-                        <ul>
-                            <li>Concorrência com plataformas consolidadas</li>
-                            <li>Restrições da LGPD</li>
-                            <li>Barreiras técnicas em integrações</li>
-                            <li>Possível baixa adesão inicial</li>
-                            <li>Dependência de engajamento de professores</li>
-                        </ul>
-                    </div>
-                </div>
+        <section class="statement section-yellow" aria-label="Manifesto ESTAGIA+">
+            <div class="shell statement-inner" data-reveal="up">
+                <p class="section-kicker">uma plataforma com propósito</p>
+                <h2>Mais que uma vaga.<br><span>Um ponto de partida.</span></h2>
+                <div class="statement-footer"><span>ESTAGIA+ / IFSP Guarulhos</span><span>Construído para ir além.</span></div>
             </div>
         </section>
 
-        <!-- Membros da Equipe -->
-        <section class="team-section" id="membros">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Nossa Equipe</h2>
-
-                <div class="team-grid">
-                    <?php foreach ($team_members as $member): ?>
-                        <div class="team-card" data-aos="fade-up" onclick="openMemberModal(<?php echo $member['id']; ?>)">
-                            <div class="team-card-header">
-                                <div class="team-card-avatar">
-                                    <?php if (isset($member['image']) && !empty($member['image'])): ?>
-                                        <img src="<?php echo asset('images/avatars/' . htmlspecialchars($member['image'])); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
-                                    <?php else: ?>
-                                        <i class="fas fa-user"></i>
-                                    <?php endif; ?>
-                                </div>
-                                <h3><?php echo htmlspecialchars($member['name']); ?></h3>
-                            </div>
-                            <div class="team-card-body">
-                                <p class="team-card-role"><?php echo htmlspecialchars($member['role']); ?></p>
-                                <p class="team-card-bio"><?php echo htmlspecialchars($member['bio']); ?></p>
-                                <div style="margin-bottom: var(--spacing-sm);">
-                                    <strong style="font-size: 0.85rem; color: var(--azul);">Hard Skills</strong>
-                                    <div class="skills-list mt-xs">
-                                        <?php foreach (array_slice($member['hard_skills'], 0, 3) as $skill): ?>
-                                            <span class="skill-tag"><?php echo htmlspecialchars($skill); ?></span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                                <p style="font-size: 0.75rem; color: var(--cinza-medio);">
-                                    <i class="fas fa-arrow-right"></i> Clique para ver mais
-                                </p>
-                            </div>
-                        </div>
+        <section class="members section-light" id="membros" aria-labelledby="members-title">
+            <div class="shell">
+                <div class="members-heading">
+                    <div class="section-heading" data-reveal="up"><p class="section-kicker">02 / membros</p><h2 id="members-title">Quem faz<br><em>acontecer.</em></h2></div>
+                    <p data-reveal="up">Ideias fortes ficam ainda melhores quando encontram pessoas com repertórios diferentes. Conheça quem constrói o ESTAGIA+.</p>
+                </div>
+                <div class="members-grid">
+                    <?php foreach (($team_members ?? []) as $index => $member): ?>
+                        <article class="member-card" data-member-card data-member-id="<?php echo e($member['id']); ?>" data-reveal="up" style="--delay: <?php echo ($index * 70); ?>ms">
+                            <button class="member-card-button" type="button" aria-haspopup="dialog" aria-controls="member-modal" aria-label="Abrir dossiê de <?php echo e($member['name']); ?>">
+                                <div class="member-image-wrap"><img src="<?php echo asset($member['image']); ?>" alt="Retrato de <?php echo e($member['name']); ?>" loading="lazy"><span class="member-arrow" aria-hidden="true">↗</span></div>
+                                <div class="member-card-body"><p class="member-eyebrow"><?php echo e($member['eyebrow']); ?></p><h3><?php echo e($member['short_name']); ?></h3><p class="member-role"><?php echo e($member['role']); ?></p><span class="member-more">Ver dossiê <span aria-hidden="true">→</span></span></div>
+                            </button>
+                        </article>
                     <?php endforeach; ?>
                 </div>
             </div>
         </section>
 
-        <!-- Vagas -->
-        <section class="location-section" id="local">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Onde estamos</h2>
-                <div class="location-grid">
-                    <div class="map-card" data-aos="fade-right">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.013624833186!2d-46.5269449!3d-23.4696273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef4dce2742357%3A0x5c83b1d5d4df5d9b!2sInstituto%20Federal%20de%20S%C3%A3o%20Paulo%20-%20Campus%20Guarulhos!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa do IFSP Guarulhos"></iframe>
-                    </div>
-                    <div class="location-card" data-aos="fade-left">
-                        <h3><i class="fas fa-map-marker-alt"></i> IFSP Campus Guarulhos</h3>
-                        <ul class="location-list">
-                            <li><i class="fas fa-location-dot"></i><span>Av. Sete de Setembro, 1271 - Centro, Guarulhos - SP</span></li>
-                            <li><i class="fas fa-bus"></i><span>Linhas de ônibus: 253, 256, 263, 276 (pontos na avenida)</span></li>
-                            <li><i class="fas fa-train"></i><span>Próximo à estação "Cecap" da CPTM (Linha 13 - Jade)</span></li>
-                            <li><i class="fas fa-clock"></i><span>Horário de atendimento administrativo: 08h às 18h</span></li>
-                            <li><i class="fas fa-phone"></i><span>Telefone: (11) 1024-5580 | Email: contato@ifsp.edu.br</span></li>
-                        </ul>
-                        <div class="map-actions">
-                            <a class="btn btn-primary" href="https://maps.google.com/?q=Instituto+Federal+de+S%C3%A3o+Paulo+-+Campus+Guarulhos" target="_blank" rel="noopener">Abrir no Google Maps</a>
-                            <a class="btn btn-outline" href="#contato">Ver contatos</a>
-                        </div>
-                    </div>
+        <section class="local section-dark" id="local" aria-labelledby="local-title">
+            <div class="shell local-grid">
+                <div class="section-heading" data-reveal="up"><p class="section-kicker">03 / local</p><h2 id="local-title">De Guarulhos<br><em>para o mundo.</em></h2></div>
+                <div class="local-panel" data-reveal="up">
+                    <div class="local-map"><div class="map-grid" aria-hidden="true"></div><div class="map-pin"><span></span></div><div class="map-label"><strong>IFSP</strong><span>Campus Guarulhos</span></div><span class="map-coordinate">23°27' S · 46°32' W</span></div>
+                    <div class="local-details"><p class="local-address">Av. Sete de Setembro, 1271<br>Centro · Guarulhos — SP</p><div><span class="detail-label">Atendimento</span><span>Segunda a sexta · 08h às 18h</span></div><a class="underlined-link light-link" href="https://maps.google.com/?q=Instituto+Federal+de+S%C3%A3o+Paulo+-+Campus+Guarulhos" target="_blank" rel="noopener noreferrer">Abrir no Google Maps <span aria-hidden="true">↗</span></a></div>
                 </div>
             </div>
         </section>
 
-        <!-- Vagas removidas da home -->
-
-        <!-- Modal para Membros -->
-        <div id="memberModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 id="modalName">Membro da Equipe</h2>
-                    <button class="modal-close" onclick="closeMemberModal()">&times;</button>
-                </div>
-                <div id="modalBody"></div>
+        <section class="contact section-yellow" id="contato" aria-labelledby="contact-title">
+            <div class="shell contact-inner" data-reveal="up">
+                <p class="section-kicker">04 / contato</p>
+                <h2 id="contact-title">Vamos construir<br><em>o próximo +.</em></h2>
+                <div class="contact-bottom"><p>Tem uma ideia, parceria ou oportunidade para compartilhar? Estamos por perto.</p><a class="contact-email" href="mailto:contato@ifsp.edu.br">contato@ifsp.edu.br <span aria-hidden="true">↗</span></a></div>
             </div>
-        </div>
+        </section>
+    </main>
 
-    <?php endif; ?>
-
-    <!-- Footer -->
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Sobre</h4>
-                    <ul>
-                        <li><a href="#sobre">Sobre ESTAGIA+</a></li>
-                        <li><a href="#membros">Nossa Equipe</a></li>
-                        <li><a href="<?php echo url('login'); ?>">Entrar</a></li>
-                        <li><a href="<?php echo url('registro'); ?>">Criar Conta</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>IFSP Guarulhos</h4>
-                    <ul>
-                        <li>Av. Sete de Setembro, 1271</li>
-                        <li>Guarulhos - SP</li>
-                        <li><a href="tel:+551102455800">(11) 1024-5580</a></li>
-                        <li><a href="mailto:contato@ifsp.edu.br">contato@ifsp.edu.br</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="/privacidade">Política de Privacidade</a></li>
-                        <li><a href="/termos">Termos de Serviço</a></li>
-                        <li><a href="/lgpd">LGPD</a></li>
-                        <li><a href="/acessibilidade">Acessibilidade</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Redes Sociais</h4>
-                    <ul>
-                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 ESTAGIA+ - Desenvolvido por alunos do IFSP Guarulhos. Todos os direitos reservados.</p>
-                <p style="font-size: 0.9rem; margin-top: var(--spacing-sm); color: rgba(255, 255, 255, 0.7);">
-                    Plataforma desenvolvida para centralizar oportunidades de estágio e conectar estudantes com o mercado de trabalho.
-                </p>
-            </div>
-        </div>
+    <footer class="site-footer section-dark">
+        <div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark">+</span><span>ESTAGIA<span>+</span></span></a><p>Feito por alunos do IFSP Guarulhos para aproximar talento e oportunidade.</p><span class="footer-year">© <?php echo date('Y'); ?> ESTAGIA+</span></div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <div class="modal-backdrop" id="member-modal" aria-hidden="true">
+        <div class="member-modal" role="dialog" aria-modal="true" aria-labelledby="modal-member-name">
+            <button class="modal-close" type="button" aria-label="Fechar dossiê">×</button>
+            <div class="modal-accent" aria-hidden="true"></div>
+            <div class="modal-grid">
+                <div class="modal-profile"><div class="modal-image-wrap"><img id="modal-member-image" src="" alt=""></div><p id="modal-member-eyebrow" class="member-eyebrow"></p><p id="modal-member-role" class="modal-role"></p></div>
+                <div class="modal-content"><p class="section-kicker">dossiê do membro</p><h2 id="modal-member-name"></h2><p id="modal-member-bio" class="modal-bio"></p><div><span class="detail-label">Pontos fortes</span><ul id="modal-member-strengths" class="strength-list"></ul></div><div><span class="detail-label">Stack & ferramentas</span><div id="modal-member-skills" class="skill-list"></div></div><div><span class="detail-label">Encontrar na rede</span><div id="modal-member-links" class="modal-links"></div></div></div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Inicializar AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Dados dos membros
-        const teamMembers = <?php echo json_encode($team_members ?? []); ?>;
-
-        function openMemberModal(memberId) {
-            const member = teamMembers.find(m => m.id === memberId);
-            if (!member) return;
-
-            document.getElementById('modalName').textContent = member.name;
-            
-            const modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = `
-                <div class="modal-body">
-                    <p style="margin-bottom: var(--spacing-md);">
-                        <strong>Cargo:</strong> ${member.role}
-                    </p>
-                    <p style="margin-bottom: var(--spacing-md);">
-                        <strong>Bio:</strong> ${member.bio}
-                    </p>
-
-                    <h4 style="color: var(--azul); margin-bottom: var(--spacing-sm);">Hard Skills</h4>
-                    <div class="skills-list mb-lg">
-                        ${member.hard_skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
-                    </div>
-
-                    <h4 style="color: var(--azul); margin-bottom: var(--spacing-sm);">Soft Skills</h4>
-                    <div class="skills-list">
-                        ${member.soft_skills.map(skill => `<span class="skill-tag" style="background: var(--amarelo-claro); color: var(--amarelo);">${skill}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('memberModal').style.display = 'block';
-        }
-
-        function closeMemberModal() {
-            document.getElementById('memberModal').style.display = 'none';
-        }
-
-        // Fechar modal ao clicar fora
-        window.onclick = function(event) {
-            const modal = document.getElementById('memberModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        function showAlert(message) {
-            alert(message);
-        }
-
-        // Smooth scroll para links âncora
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+        window.estagiaMembers = <?php echo json_encode($team_members ?? [], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="<?php echo asset('js/app.js'); ?>"></script>
 </body>
 </html>
