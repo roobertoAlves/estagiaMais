@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>">
-    <link rel="stylesheet" href="<?php echo asset('css/app-home.css'); ?>">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css'); ?>?v=<?php echo filemtime(PUBLIC_PATH . '/css/style.css'); ?>">
+    <link rel="stylesheet" href="<?php echo asset('css/app-home.css'); ?>?v=<?php echo filemtime(PUBLIC_PATH . '/css/app-home.css'); ?>">
 </head>
 <body class="page-home" data-base-url="<?php echo e(BASE_URL); ?>">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -30,6 +30,8 @@
                 <a class="nav-link" href="#sobre">Sobre</a>
                 <a class="nav-link" href="#membros">Membros</a>
                 <a class="nav-link" href="#local">Local</a>
+                <a class="nav-link" href="#servicos">Serviços</a>
+                <a class="nav-link" href="#demandante">Demandante</a>
                 <a class="nav-link" href="#contato">Contato</a>
             </nav>
             <a class="header-cta" href="#membros"><span>Conheça a equipe</span><span aria-hidden="true">↗</span></a>
@@ -111,6 +113,70 @@
                 <p class="section-kicker">uma plataforma com propósito</p>
                 <h2>Mais que uma vaga.<br><span>Um ponto de partida.</span></h2>
                 <div class="statement-footer"><span>ESTAGIA+ / IFSP Guarulhos</span><span>Construído para ir além.</span></div>
+            </div>
+        </section>
+
+
+        <section class="services section-light" id="servicos" aria-labelledby="services-title">
+            <div class="shell">
+                <div class="services-intro">
+                    <div class="section-heading" data-reveal="up">
+                        <p class="section-kicker">02 / serviços</p>
+                        <h2 id="services-title">Nossas<br><em>Soluções.</em></h2>
+                    </div>
+                    <div class="services-lead" data-reveal="up">
+                        <p class="lead">Conectamos empresas específicas a estudantes preparados para dar o próximo passo.</p>
+                        <p>O ESTAGIA+ é uma plataforma em construção para concentrar vagas e oportunidades de emprego de empresas parceiras em um ambiente claro e acessível. A proposta é facilitar o encontro entre quem busca talento e quem procura sua primeira oportunidade profissional.</p>
+                    </div>
+                </div>
+
+                <div class="services-visual" data-reveal="scale" role="img" aria-label="Arte abstrata representando a conexão entre empresas, estudantes e oportunidades do ESTAGIA+">
+                    <div class="services-visual-grid" aria-hidden="true"></div>
+                    <div class="services-visual-badge"><span>CONEXÕES</span><strong>ESTAGIA<br>+</strong></div>
+                    <div class="services-visual-flow" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <p>Empresas · Estudantes · Oportunidades</p>
+                </div>
+
+                <p class="services-description" data-reveal="up">Nossa estrutura foi pensada para reunir oportunidades, candidaturas e informações relevantes em um só lugar, apoiando empresas parceiras e estudantes durante cada etapa da jornada.</p>
+
+                <div class="services-grid">
+                    <article class="service-card" data-reveal="up" style="--delay: 0ms">
+                        <span class="service-index">01</span>
+                        <h3>Divulgação de Vagas para Empresas Parceiras</h3>
+                        <p>Empresas específicas podem apresentar vagas de estágio e emprego em um espaço direcionado ao público estudantil. A proposta é dar visibilidade às oportunidades e facilitar que cada empresa alcance candidatos alinhados ao seu perfil.</p>
+                    </article>
+                    <article class="service-card" data-reveal="up" style="--delay: 90ms">
+                        <span class="service-index">02</span>
+                        <h3>Candidatura Simplificada para Estudantes</h3>
+                        <p>Estudantes poderão consultar oportunidades, entender os requisitos de cada vaga e se candidatar de forma organizada. O foco é tornar a busca pelo primeiro estágio ou emprego menos dispersa e mais acessível.</p>
+                    </article>
+                    <article class="service-card" data-reveal="up" style="--delay: 180ms">
+                        <span class="service-index">03</span>
+                        <h3>Conexão e Acompanhamento de Oportunidades</h3>
+                        <p>A plataforma busca organizar a relação entre empresas, vagas e estudantes interessados, criando uma base para acompanhar oportunidades, orientar candidaturas e ampliar o acesso a experiências profissionais relevantes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="demandante section-dark" id="demandante" aria-labelledby="demandante-title">
+            <div class="shell demandante-grid">
+                <div class="demandante-copy" data-reveal="up">
+                    <p class="section-kicker"><span class="status-dot"></span> empresas e instituições parceiras</p>
+                    <h2 id="demandante-title">Sua empresa<br><em>abre caminhos.</em></h2>
+                    <p>O ESTAGIA+ nasce para aproximar empresas que oferecem vagas de estudantes que buscam estágio, emprego e desenvolvimento profissional. A sua participação ajuda a transformar oportunidades específicas em pontos de partida para novas trajetórias.</p>
+                    <a class="button button-primary" href="<?php echo url('demandante/demandante.php'); ?>" target="_blank" rel="noopener noreferrer">Demandante <span aria-hidden="true">↗</span></a>
+                    <small>Abre a página de apresentação do demandante do projeto em uma nova aba.</small>
+                </div>
+                <div class="demandante-art" data-reveal="scale" role="img" aria-label="Arte abstrata sobre a conexão entre empresas, estudantes e futuro profissional">
+                    <div class="demandante-art-grid" aria-hidden="true"></div>
+                    <div class="demandante-orbit orbit-a" aria-hidden="true"></div>
+                    <div class="demandante-orbit orbit-b" aria-hidden="true"></div>
+                    <div class="demandante-node node-a" aria-hidden="true"></div>
+                    <div class="demandante-node node-b" aria-hidden="true"></div>
+                    <div class="demandante-node node-c" aria-hidden="true"></div>
+                    <div class="demandante-art-copy"><span>OPORTUNIDADE</span><strong>EMPRESA<br>→ FUTURO</strong><span>ESTAGIA+</span></div>
+                </div>
             </div>
         </section>
 
