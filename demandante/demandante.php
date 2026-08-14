@@ -193,12 +193,8 @@
 
   <footer id="contato">
     <img src="./img/logoIF.png" alt="Logo Vertical IFSP" class="footer-logo" />
-    <p>
-      &copy; <?php echo date('Y'); ?> - ESTAGIA+ - Projeto de Gestão de Estágios do IFSP Guarulhos.
-    </p>
-    <a href="https://www.linkedin.com/in/flrobson77/" target="_blank" rel="noopener" class="footer-linkedin">
-      <i class="fab fa-linkedin"></i> linkedin.com/in/flrobson77
-    </a>
+  
+  
   </footer>
 
   <script src="./js/script.js"></script>
