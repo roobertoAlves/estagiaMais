@@ -54,8 +54,13 @@
                         <a class="button button-primary" href="#sobre">Explorar o projeto <span aria-hidden="true">↘</span></a>
                         <a class="text-link" href="#membros">Conhecer os membros <span aria-hidden="true">→</span></a>
                     </div>
+                    <div class="hero-meta">
+                        <div><strong>01</strong><span>Conexão entre<br>talentos e futuro</span></div>
+                        <div><strong>02</strong><span>Feito por alunos<br>para a comunidade</span></div>
+                    </div>
                 </div>
             </div>
+            <div class="hero-scroll"><span>Role para descobrir</span><span class="scroll-line"></span></div>
         </section>
 
         <section class="intro section-light" id="sobre" aria-labelledby="about-title">
@@ -70,43 +75,33 @@
                     <a class="underlined-link" href="#contato">Fale com a gente <span aria-hidden="true">↗</span></a>
                 </div>
             </div>
-            <div class="shell about-showcase">
-                <header class="about-showcase-heading">
-                    <p class="section-kicker">Conheça o projeto</p>
-                    <h3>Sobre ESTAGIA+</h3>
-                    <p>Uma plataforma acadêmica pensada para aproximar estudantes, oportunidades e desenvolvimento profissional.</p>
-                </header>
-                <div class="about-info-list">
-                    <article class="about-info-card">
-                        <div class="about-info-title"><span class="about-icon icon-mission" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"></circle></svg></span><h4>Missão</h4></div>
-                        <p>Oferecer aos estudantes uma plataforma integrada e acessível que centraliza oportunidades de estágio, facilita a comunicação com professores e empresas, e promove o desenvolvimento profissional por meio de ferramentas digitais eficientes, seguras e alinhadas ao ambiente acadêmico.</p>
-                    </article>
-                    <article class="about-info-card">
-                        <div class="about-info-title"><span class="about-icon icon-vision" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z"></path><circle cx="12" cy="12" r="2.6"></circle></svg></span><h4>Visão</h4></div>
-                        <p>Tornar-se a principal plataforma acadêmica de apoio à empregabilidade estudantil no IFSP e, futuramente, expandir-se para instituições de ensino em todo o país.</p>
-                    </article>
-                    <article class="about-info-card">
-                        <div class="about-info-title"><span class="about-icon icon-values" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 8-8 10L4 11l8-8Z"></path><path d="m4 11 8 3 8-3"></path></svg></span><h4>Valores</h4></div>
-                        <p class="values-inline">Acessibilidade <span>•</span> Inovação <span>•</span> Ética <span>•</span> Responsabilidade Social <span>•</span> Colaboração <span>•</span> Credibilidade <span>•</span> Desenvolvimento Contínuo</p>
-                    </article>
+            <div class="shell about-profile">
+                <div class="about-profile-header">
+                    <p class="section-kicker">Sobre ESTAGIA+</p>
+                    <h3>Estrutura para transformar oportunidade em desenvolvimento.</h3>
+                </div>
+                <div class="purpose-grid">
+                    <article class="purpose-card"><span class="detail-label">Missão</span><p>Oferecer aos estudantes uma plataforma integrada e acessível que centraliza oportunidades de estágio, facilita a comunicação com professores e empresas, e promove o desenvolvimento profissional por meio de ferramentas digitais eficientes, seguras e alinhadas ao ambiente acadêmico.</p></article>
+                    <article class="purpose-card"><span class="detail-label">Visão</span><p>Tornar-se a principal plataforma acadêmica de apoio à empregabilidade estudantil no IFSP e, futuramente, expandir-se para instituições de ensino em todo o país.</p></article>
+                    <article class="purpose-card purpose-values"><span class="detail-label">Valores</span><p>Acessibilidade <span>•</span> Inovação <span>•</span> Ética <span>•</span> Responsabilidade Social <span>•</span> Colaboração <span>•</span> Credibilidade <span>•</span> Desenvolvimento Contínuo</p></article>
                 </div>
             </div>
-            <div class="shell values-showcase">
-                <header class="values-showcase-heading"><p class="section-kicker">Princípios do projeto</p><h3>Nossos Valores</h3></header>
-                <div class="values-feature-grid">
-                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"></circle><path d="M6 21v-4.2a6 6 0 0 1 12 0V21M12 10v6M9 13h6"></path></svg></span><h4>Acessibilidade</h4><p>Garantir que todos os estudantes tenham acesso igualitário às oportunidades.</p></article>
-                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8 14c-1.3-1.1-2-2.7-2-4.5a6 6 0 1 1 12 0c0 1.8-.7 3.4-2 4.5-.8.7-1.2 1.5-1.2 2.5H9.2c0-1-.4-1.8-1.2-2.5Z"></path></svg></span><h4>Inovação</h4><p>Promover soluções criativas e tecnológicas que otimizem o processo de busca por estágios.</p></article>
-                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><h4>Ética e Transparência</h4><p>Tratar dados com responsabilidade seguindo rigorosamente a LGPD.</p></article>
-                    <article class="value-feature-card"><span class="value-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 13 5 10l-3 3 5 5 3-3M16 13l3-3 3 3-5 5-3-3M9 15h6"></path></svg></span><h4>Colaboração</h4><p>Estimular a interação entre alunos, professores e empresas.</p></article>
+            <div class="shell principles-section">
+                <div class="principles-heading"><p class="section-kicker">Nossos Valores</p><p>Princípios que orientam cada decisão, interação e funcionalidade do ESTAGIA+.</p></div>
+                <div class="principles-grid">
+                    <article class="principle-card"><span>01</span><h3>Acessibilidade</h3><p>Garantir que todos os estudantes tenham acesso igualitário às oportunidades.</p></article>
+                    <article class="principle-card"><span>02</span><h3>Inovação</h3><p>Promover soluções criativas e tecnológicas que otimizem o processo de busca por estágios.</p></article>
+                    <article class="principle-card"><span>03</span><h3>Ética e Transparência</h3><p>Tratar dados com responsabilidade seguindo rigorosamente a LGPD.</p></article>
+                    <article class="principle-card"><span>04</span><h3>Colaboração</h3><p>Estimular a interação entre alunos, professores e empresas.</p></article>
                 </div>
             </div>
-            <div class="shell swot-showcase" aria-labelledby="swot-title">
-                <header class="swot-showcase-heading"><p class="section-kicker">Planejamento estratégico</p><h3 id="swot-title">Análise SWOT</h3></header>
-                <div class="swot-panel-grid">
-                    <article class="swot-panel swot-strength"><h4><span aria-hidden="true">✓</span> Forças</h4><ul><li>Centralização de vagas em único ambiente</li><li>Integração com dados da instituição</li><li>Feedback direto de professores</li><li>Chat integrado</li><li>Interface personalizada para IFSP</li></ul></article>
-                    <article class="swot-panel swot-weakness"><h4><span aria-hidden="true">×</span> Fraquezas</h4><ul><li>Dependência de APIs externas</li><li>Necessidade de apoio administrativo</li><li>Complexidade do escopo inicial</li><li>Manutenção contínua requerida</li><li>Inexperiência gerencial</li></ul></article>
-                    <article class="swot-panel swot-opportunity"><h4><span aria-hidden="true">★</span> Oportunidades</h4><ul><li>Alta demanda por soluções de empregabilidade</li><li>Expansão para outros campi do IFSP</li><li>Parcerias com empresas</li><li>Acesso a editais de inovação</li><li>Gamificação e trilhas de capacitação</li></ul></article>
-                    <article class="swot-panel swot-threat"><h4><span aria-hidden="true">!</span> Ameaças</h4><ul><li>Concorrência com plataformas consolidadas</li><li>Restrições da LGPD</li><li>Barreiras técnicas em integrações</li><li>Possível baixa adesão inicial</li><li>Dependência de engajamento de professores</li></ul></article>
+            <div class="shell swot-section" aria-labelledby="swot-title">
+                <div class="swot-heading"><p class="section-kicker">Análise SWOT</p><h3 id="swot-title">Visão clara para evoluir com responsabilidade.</h3></div>
+                <div class="swot-grid">
+                    <article class="swot-card strength"><span>Forças</span><ul><li>Centralização de vagas em único ambiente</li><li>Integração com dados da instituição</li><li>Feedback direto de professores</li><li>Chat integrado</li><li>Interface personalizada para IFSP</li></ul></article>
+                    <article class="swot-card weakness"><span>Fraquezas</span><ul><li>Dependência de APIs externas</li><li>Necessidade de apoio administrativo</li><li>Complexidade do escopo inicial</li><li>Manutenção contínua requerida</li><li>Inexperiência gerencial</li></ul></article>
+                    <article class="swot-card opportunity"><span>Oportunidades</span><ul><li>Alta demanda por soluções de empregabilidade</li><li>Expansão para outros campi do IFSP</li><li>Parcerias com empresas</li><li>Acesso a editais de inovação</li><li>Gamificação e trilhas de capacitação</li></ul></article>
+                    <article class="swot-card threat"><span>Ameaças</span><ul><li>Concorrência com plataformas consolidadas</li><li>Restrições da LGPD</li><li>Barreiras técnicas em integrações</li><li>Possível baixa adesão inicial</li><li>Dependência de engajamento de professores</li></ul></article>
                 </div>
             </div>
         </section>

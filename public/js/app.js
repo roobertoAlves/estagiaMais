@@ -89,7 +89,8 @@
         heroTimeline.from('.hero .section-kicker', { autoAlpha: 0, y: 18, duration: .65 })
             .from('.hero h1', { autoAlpha: 0, y: 36, duration: 1 }, '-=.35')
             .from('.hero-description', { autoAlpha: 0, y: 22, duration: .7 }, '-=.55')
-            .from('.hero-actions', { autoAlpha: 0, y: 18, duration: .65 }, '-=.4');
+            .from('.hero-actions', { autoAlpha: 0, y: 18, duration: .65 }, '-=.4')
+            .from('.hero-meta', { autoAlpha: 0, y: 14, duration: .55 }, '-=.35');
         gsap.to('.hero-banner-image', {
             yPercent: 6,
             scale: 1.08,
@@ -101,12 +102,12 @@
         if (about) {
             const aboutHeading = about.querySelector('.section-heading');
             const aboutCopy = about.querySelector('.intro-copy');
-            const aboutProfile = about.querySelector('.about-showcase');
-            const purposeCards = about.querySelectorAll('.about-info-card');
-            const principlesSection = about.querySelector('.values-showcase');
-            const principleCards = about.querySelectorAll('.value-feature-card');
-            const swotSection = about.querySelector('.swot-showcase');
-            const swotCards = about.querySelectorAll('.swot-panel');
+            const aboutProfile = about.querySelector('.about-profile');
+            const purposeCards = about.querySelectorAll('.purpose-card');
+            const principlesSection = about.querySelector('.principles-section');
+            const principleCards = about.querySelectorAll('.principle-card');
+            const swotSection = about.querySelector('.swot-section');
+            const swotCards = about.querySelectorAll('.swot-card');
             const aboutTimeline = gsap.timeline({
                 defaults: { ease: 'power3.out' },
                 scrollTrigger: { trigger: about, start: 'top 72%', once: true },
