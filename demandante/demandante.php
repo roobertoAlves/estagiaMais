@@ -94,7 +94,15 @@
       </p>
       <div class="video-container animated-item">
         <!-- TODO: substituir pelo link real do vídeo (ex: Google Drive, YouTube) -->
-        <iframe src="https://www.youtube.com/watch?v=JLuq5yj1SWM" allow="autoplay" frameborder="0" title="Entrevista com o Demandante"></iframe>
+       <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/JLuq5yj1SWM"
+    title="Vídeo"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
       </div>
     </section>
 
