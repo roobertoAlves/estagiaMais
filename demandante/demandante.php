@@ -19,12 +19,8 @@
 
 <body>
   <nav class="navbar" id="navbar">
-    <a class="back-home" href="/" aria-label="Voltar para a página inicial do ESTAGIA+">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        <span>Voltar para a Estagia+</span>dadadad
-    </a>
-
-    <a href="/" aria-label="Página inicial do ESTAGIA+">
+  
+    <a class="nav-logo" href="/" aria-label="Voltar para a página inicial do ESTAGIA+">
         <img src="./img/logoIF.png" alt="Logo Vertical IFSP" />
     </a>
 
