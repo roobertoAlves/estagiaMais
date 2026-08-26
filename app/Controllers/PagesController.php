@@ -2,91 +2,98 @@
 namespace App\Controllers;
 
 /**
- * PagesController - Gerencia páginas públicas
+ * PagesController — única área pública do ESTAGIA+.
  */
-class PagesController extends Controller {
-    
-    public function home() {
-        $csrf_token = $this->generateCsrfToken();
-        $title = "ESTAGIA+ — O primeiro + da sua carreira!";
-        $description = "Plataforma de estágios do IFSP Guarulhos centralizando oportunidades e conectando alunos com empresas.";
-        
-        // Dados dos membros da equipe
+class PagesController extends Controller
+{
+    public function home()
+    {
+        $title = 'ESTAGIA+ — O primeiro + da sua carreira!';
+        $description = 'Uma experiência acadêmica que aproxima estudantes, professores e empresas por meio de oportunidades reais.';
+
         $team_members = [
             [
-                'id' => 1,
+                'id' => 'arthur',
                 'name' => 'Arthur de Oliveira Mendes Sacramento',
+                'short_name' => 'Arthur Sacramento',
                 'role' => 'Desenvolvedor Full-Stack & IoT',
-                'bio' => 'Especialista em desenvolvimento de automações, criação de aplicativos e soluções tecnológicas.',
-                'image' => 'arthur.png',
-                'hard_skills' => ['Python', 'PHP', 'JavaScript', 'C/C++', 'IoT (ESP32)', 'Firebase'],
-                'soft_skills' => ['Raciocínio Lógico', 'Atenção a Detalhes', 'Aprendizado Rápido', 'Persistência']
+                'eyebrow' => 'Produto & automação',
+                'bio' => 'Especialista em automações, aplicativos e soluções conectadas que transformam problemas complexos em experiências simples.',
+                'strengths' => ['Visão de produto', 'Automações inteligentes', 'Integração entre hardware e software'],
+                'skills' => ['Python', 'PHP', 'JavaScript', 'IoT'],
+                'image' => 'images/avatars/arthur.png',
+                'email' => 'oarthursacra@gmail.com',
+                'linkedin' => 'https://www.linkedin.com/in/sacrarthur?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+                'github' => 'https://github.com/osacra',
+                'portfolio' => null,
             ],
             [
-                'id' => 2,
+                'id' => 'jose-roberto',
                 'name' => 'José Roberto Junior Alves Damasceno',
+                'short_name' => 'José Roberto',
                 'role' => 'Desenvolvedor Web & Games',
-                'bio' => '5 anos de experiência em desenvolvimento de jogos e soluções web modernas.',
-                'image' => 'roberto.png',
-                'hard_skills' => ['React', 'Node.js', 'Unity', 'C#', 'TypeScript', 'Blender'],
-                'soft_skills' => ['Comunicação Clara', 'Criatividade', 'Organização', 'Resiliência']
+                'eyebrow' => 'Experiências interativas',
+                'bio' => 'Desenvolvedor com experiência em jogos e soluções web modernas, atento à performance, narrativa e usabilidade.',
+                'strengths' => ['Pensamento sistêmico', 'Prototipação rápida', 'Experiências interativas'],
+                'skills' => ['React', 'Node.js', 'Unity'],
+                'image' => 'images/avatars/roberto.png',
+                'email' => 'jbetodamasceno@gmail.com',
+                'linkedin' => 'https://www.linkedin.com/in/beto-damasceno/',
+                'github' => 'https://github.com/roobertoAlves?tab=repositories',
+                'portfolio' => 'https://example.com/portfolio-em-construcao',
             ],
             [
-                'id' => 3,
+                'id' => 'pedro-miguel',
                 'name' => 'Pedro Miguel Dias Oliveira',
+                'short_name' => 'Pedro Miguel',
                 'role' => 'Especialista Cloud & Segurança',
-                'bio' => 'Certificado em Oracle Cloud e Cisco, com foco em cibersegurança e arquitetura em nuvem.',
-                'image' => 'pedroMiguel.png',
-                'hard_skills' => ['Oracle Cloud', 'Cisco Networking', 'Cibersegurança', 'MySQL', 'JavaScript'],
-                'soft_skills' => ['Pensamento Analítico', 'Foco', 'Dedicação', 'Organização']
+                'eyebrow' => 'Infraestrutura & proteção',
+                'bio' => 'Profissional certificado em Oracle Cloud e Cisco, com foco em cibersegurança, redes e arquitetura resiliente.',
+                'strengths' => ['Arquitetura em nuvem', 'Cibersegurança', 'Confiabilidade operacional'],
+                'skills' => ['Oracle Cloud', 'Cisco Networking', 'Cibersegurança'],
+                'image' => 'images/avatars/pedroMiguel.png',
+                'email' => 'pmd.oliveira.t@gmail.com',
+                'linkedin' => 'https://www.linkedin.com/in/pedromdiaso?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+                'github' => 'https://github.com/PedrinhoMiguel',
+                'portfolio' => null,
             ],
             [
-                'id' => 4,
+                'id' => 'pedro-henri',
                 'name' => 'Pedro Henri Gois da Silva',
+                'short_name' => 'Pedro Henri',
                 'role' => 'Desenvolvedor Web & Análise',
-                'bio' => 'Especialista em engenharia de requisitos e desenvolvimento de aplicações web estruturadas.',
-                'image' => 'pedro.png',
-                'hard_skills' => ['Python', 'JavaScript', 'TypeScript', 'HTML5/CSS3', 'MySQL'],
-                'soft_skills' => ['Planejamento', 'Autonomia', 'Adaptabilidade', 'Empatia']
+                'eyebrow' => 'Dados & estrutura',
+                'bio' => 'Especialista em engenharia de requisitos e desenvolvimento de aplicações web estruturadas para resolver necessidades reais.',
+                'strengths' => ['Engenharia de requisitos', 'Raciocínio analítico', 'Desenvolvimento estruturado'],
+                'skills' => ['Python', 'JavaScript', 'TypeScript'],
+                'image' => 'images/avatars/pedro.png',
+                'email' => 'pedrohenre@hotmail.com',
+                'linkedin' => 'https://www.linkedin.com/in/pedrohenrigois/',
+                'github' => 'https://github.com/P-Hwe',
+                'portfolio' => null,
             ],
             [
-                'id' => 5,
+                'id' => 'rodrigo',
                 'name' => 'Rodrigo Querino do Amaral',
+                'short_name' => 'Rodrigo Querino',
                 'role' => 'Developer & Growth Marketing',
-                'bio' => 'Experiência em marketing digital, landing pages e interface com foco em usabilidade.',
-                'image' => 'rodrigo.png',
-                'hard_skills' => ['HTML/CSS', 'No-code Tools', 'Landing Pages', 'Marketing Digital'],
-                'soft_skills' => ['Comunicação', 'Criatividade', 'Proatividade', 'Adaptabilidade']
+                'eyebrow' => 'Crescimento & experiência',
+                'bio' => 'Atua entre tecnologia, marketing digital e design de interfaces para criar páginas claras, acessíveis e orientadas a resultado.',
+                'strengths' => ['Comunicação visual', 'Landing pages', 'Usabilidade e conversão'],
+                'skills' => ['HTML/CSS', 'No-code tools', 'Landing pages'],
+                'image' => 'images/avatars/rodrigo.png',
+                'email' => 'rq.amaral06@gmail.com',
+                'linkedin' => 'https://www.linkedin.com/in/rodrigo-querino-125771264',
+                'github' => 'https://github.com/pgsharpro-bot',
+                'portfolio' => null,
             ],
-            [
-                'id' => 6,
-                'name' => 'Robert Vieira Souza',
-                'role' => 'Full-Stack Developer',
-                'bio' => 'Experiência em React, React Native e desenvolvimento mobile com foco em qualidade.',
-                'image' => 'robert.png',
-                'hard_skills' => ['React', 'React Native', 'TypeScript', 'Node.js', 'Firebase'],
-                'soft_skills' => ['Resiliência', 'Responsabilidade', 'Trabalho em Equipe', 'Atualização Contínua']
-            ]
         ];
-        
+
         echo $this->render('layouts/app', [
-            'csrf_token' => $csrf_token,
             'title' => $title,
             'description' => $description,
             'page' => 'home',
-            'team_members' => $team_members
-        ]);
-    }
-
-    public function about() {
-        $csrf_token = $this->generateCsrfToken();
-        $title = "Sobre - ESTAGIA+";
-        
-        echo $this->render('layouts/app', [
-            'csrf_token' => $csrf_token,
-            'title' => $title,
-            'page' => 'about'
+            'team_members' => $team_members,
         ]);
     }
 }
-?>
