@@ -19,9 +19,10 @@
 
 <body>
   <nav class="navbar" id="navbar">
-    <a href="#home" class="nav-logo">
+     <a class="back-home" href="/" aria-label="Voltar para a página inicial do ESTAGIA+">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        <span>Voltar para a Estagia+</span>
       <img src="./img/logoIF.png" alt="Logo Vertical IFSP" />
-      <span>ESTAGIA<b>+</b></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
       <i class="fas fa-bars"></i>
